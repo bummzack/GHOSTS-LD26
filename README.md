@@ -1,10 +1,11 @@
 GHOSTS - A minimalistic horror game.
 ============
 
-Link to the playable version of the game: http://bummzack.ch/LD26/
-If you have comments, feedback: http://www.reddit.com/r/ludumdare/comments/1dah0b/ld26_ghosts_minimalistic_horror_game/
+**Ludum dare 26 entry. Created in 48 hours.**
 
-Ludum dare game. Created in 48 hours.
+Link to the playable version of the game: http://bummzack.ch/LD26/
+
+If you have comments, feedback: http://www.reddit.com/r/ludumdare/comments/1dah0b/ld26_ghosts_minimalistic_horror_game/
 
 This is a HTML5 game and should run in most recent browsers (must support canvas). Looks best in Firefox or Safari (graphics are slightly blurred in Google Chrome and Firefox).
 
