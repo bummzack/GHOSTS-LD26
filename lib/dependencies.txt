@@ -1,0 +1,2 @@
+Requires sound.swf and enchant.js here (enchant.min.js for release build).
+Get it from: https://github.com/wise9/enchant.js
