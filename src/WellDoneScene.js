@@ -6,6 +6,8 @@ var WellDoneScene = enchant.Class.create(enchant.Scene, {
 		bg.image = game.assets["assets/welldone.png"];
 		this.addChild(bg);
 		
+		ghosts.levelindex++;
+		
 		this.addEventListener(Event.INPUT_START, function(e){
 			this.clearEventListener(Event.INPUT_START);
 			game.replaceScene(new GameScene());

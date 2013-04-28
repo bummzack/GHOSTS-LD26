@@ -48,7 +48,7 @@ var GameScene = enchant.Class.create(enchant.Scene, {
 		var player = new Sprite(1,1);
 		player.x = Math.floor(metaData.start[0] / this.scale);
 		player.y = Math.floor(metaData.start[1] / this.scale);
-		player.backgroundColor = "#ffff66";
+		player.backgroundColor = "#ffcc00";
 		this.addChild(player);
 		
 		for(var i = 0, len = metaData.ghosts.length; i < len; i++){
@@ -72,19 +72,18 @@ var GameScene = enchant.Class.create(enchant.Scene, {
 			var ctx = wallsSurface.context;
 			ctx.save();
 			ctx.globalCompositeOperation = 'destination-out';
-			ctx.fillStyle = "rgba(0, 0, 0, .05)";
+			ctx.fillStyle = "rgba(0, 0, 0, .1)";
 			ctx.fillRect(0, 0, game.width, game.height);
 			ctx.restore();
 			
 			var newX = player.x;
 			var newY = player.y;
 			if(this.accelX != 0){
-				newX = Math.min(game.width, Math.max(0, newX + this.accelX));
+				newX = Math.min(game.width - 1, Math.max(0, newX + this.accelX));
 			}
 			
 			if(this.accelY != 0){
-				newY = Math.min(game.height, Math.max(0, newY + this.accelY));
-				//newY += this.accelY;
+				newY = Math.min(game.height - 1, Math.max(0, newY + this.accelY));
 			}
 			var c = this.mapData[newX * this.scale][newY * this.scale];
 			if(c > 0){

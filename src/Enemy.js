@@ -35,7 +35,6 @@ var Enemy = enchant.Class.create(enchant.Sprite, {
 				}
 				
 				if(Math.abs(this.x - target.x + 1) <= 1 && Math.abs(this.y - target.y + 1) <= 1){
-					window.console.log("ARGH");
 					Core.instance.replaceScene(new FailScene());
 				}
 			} else {
