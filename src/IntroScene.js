@@ -4,6 +4,7 @@ var IntroScene = enchant.Class.create(enchant.Scene, {
 		var game = Core.instance;
 		var bg = new Sprite(game.width, game.height);
 		ghosts.attempts = 1;
+		ghosts.levelindex = 0;
 		var slides = ["assets/intro-1.png", "assets/intro-2.png", "assets/intro-3.png"];
 		var idx = 0;
 		bg.image = game.assets[slides[idx]];

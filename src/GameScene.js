@@ -48,7 +48,7 @@ var GameScene = enchant.Class.create(enchant.Scene, {
 		var player = new Sprite(1,1);
 		player.x = Math.floor(metaData.start[0] / this.scale);
 		player.y = Math.floor(metaData.start[1] / this.scale);
-		player.backgroundColor = "#ffcc00";
+		player.backgroundColor = "#ff00ff";
 		this.addChild(player);
 		
 		for(var i = 0, len = metaData.ghosts.length; i < len; i++){
