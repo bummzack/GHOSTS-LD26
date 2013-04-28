@@ -1,0 +1,1 @@
+{ var ldata = ghosts.leveldata || []; ldata.push({ "name": "assets/levelmap/level-04.png", "data" : {"start":[155,88],"ghosts":[[16,37],[171,61],[37,95],[75,96]],"exit":[187,8],"scale":140985}}); };

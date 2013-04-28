@@ -1,7 +1,3 @@
 .settings/org.eclipse.wst.jsdt.ui.superType.container
 .settings/org.eclipse.wst.jsdt.ui.superType.name
 .project
-lib/enchant.js
-lib/enchant.min.js
-sound.swf
-assets/levelmap
