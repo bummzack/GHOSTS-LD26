@@ -1,7 +1,13 @@
 #!/usr/bin/php
-<?php 
+<?php
+/**
+ * BUILD SCRIPT FOR GHOSTS GAME
+ * Generates light-distance-map from a PNG and extracts relevant game-metadata
+ */
+set_time_limit(600);
 define('DS', DIRECTORY_SEPARATOR);
 define('ASSET_FOLDER', realpath(__DIR__ . DS . '..' . DS . 'assets'));
+define('ASSET_URL', 'assets/levelmap/');
 define('SRC_FOLDER', ASSET_FOLDER . DS . 'levelsrc');
 define('OUT_FOLDER', ASSET_FOLDER . DS . 'levelmap');
 define('GHOST_COLOR', 0xff0000);
@@ -82,7 +88,7 @@ function processImage($img, $outname){
 		}
 	}
 	$outfile = OUT_FOLDER . DS . $outname;
-	$js = '{ var ldata = ghosts.leveldata || []; ldata.push({ "name": "assets/levelmap/'. $outname . '", "data" : '. json_encode($data) .'}); };';
+	$js = '{ var ldata = ghosts.leveldata || []; ldata.push({ "name": "'. ASSET_URL . $outname . '", "data" : '. json_encode($data) .'}); };';
 	file_put_contents(str_replace('.png', '.js', $outfile), $js);
 	imagepng($out, $outfile);
 }
