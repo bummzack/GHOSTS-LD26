@@ -21,8 +21,8 @@ var IntroScene = enchant.Class.create(enchant.Scene, {
 		});
 		
 		
-		this.addEventListener(Event.INPUT_START, function(e){
-			this.clearEventListener(Event.INPUT_START);
+		game.addEventListener(Event.INPUT_START, function(e){
+			game.clearEventListener(Event.INPUT_START);
 			this.clearEventListener(Event.ENTER_FRAME);
 			game.replaceScene(new GameScene());
 		});
