@@ -11,7 +11,8 @@ var IntroScene = enchant.Class.create(enchant.Scene, {
 		this.addChild(bg);
 		
 		var t = 0;
-		this.addEventListener(Event.ENTER_FRAME, function(e){
+		var self = this;
+		self.addEventListener(enchant.Event.ENTER_FRAME, function(e){
 			t += e.elapsed;
 			if(t >= 4000){
 				idx = (idx + 1) % slides.length;
@@ -19,12 +20,16 @@ var IntroScene = enchant.Class.create(enchant.Scene, {
 				t -= 4000;
 			}
 		});
+
+		var handler = function(e){
+			var core = enchant.Core.instance;
+			core.removeEventListener(enchant.Event.INPUT_START, handler);
+			core.removeEventListener(enchant.Event.A_BUTTON_DOWN, handler);
+			self.clearEventListener(enchant.Event.ENTER_FRAME);
+			core.replaceScene(new GameScene());
+		};
 		
-		
-		game.addEventListener(Event.INPUT_START, function(e){
-			game.clearEventListener(Event.INPUT_START);
-			this.clearEventListener(Event.ENTER_FRAME);
-			game.replaceScene(new GameScene());
-		});
+		game.addEventListener(enchant.Event.A_BUTTON_DOWN, handler);
+		game.addEventListener(enchant.Event.INPUT_START, handler);
 	}
 });

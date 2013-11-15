@@ -6,9 +6,15 @@ var FailScene = enchant.Class.create(enchant.Scene, {
 		bg.image = game.assets["assets/died.png"];
 		this.addChild(bg);
 		ghosts.attempts++;
-		this.addEventListener(Event.INPUT_START, function(e){
-			this.clearEventListener(Event.INPUT_START);
-			game.replaceScene(new GameScene());
-		});
+
+		var handler = function(e){
+			var core = enchant.Core.instance;
+			core.removeEventListener(enchant.Event.INPUT_START, handler);
+			core.removeEventListener(enchant.Event.A_BUTTON_DOWN, handler);
+			core.replaceScene(new GameScene());
+		};
+
+		game.addEventListener(enchant.Event.A_BUTTON_DOWN, handler);
+		game.addEventListener(enchant.Event.INPUT_START, handler);
 	}
 });

@@ -8,9 +8,14 @@ var WellDoneScene = enchant.Class.create(enchant.Scene, {
 		
 		ghosts.levelindex++;
 		
-		this.addEventListener(Event.INPUT_START, function(e){
-			this.clearEventListener(Event.INPUT_START);
-			game.replaceScene(new GameScene());
-		});
+		var handler = function(e){
+			var core = enchant.Core.instance;
+			core.removeEventListener(enchant.Event.A_BUTTON_DOWN, handler);
+			core.removeEventListener(enchant.Event.INPUT_START, handler);
+			core.replaceScene(new GameScene());
+		};
+
+		game.addEventListener(enchant.Event.A_BUTTON_DOWN, handler);
+		game.addEventListener(enchant.Event.INPUT_START, handler);
 	}
 });
